@@ -8,3 +8,6 @@ Hey everybody! Welcome to my humble portfolio, I will be posting all my projects
 * I've always consider myself a tech savy person but coding seemed like a really long shot for a regular spreadsheet lover! Nonetheless, I always wanted to at least understand how coding worked.
 * Now that I've taken courses and practiced with my own databases, I've really come to like it!
 * I will be posting all of my practice and real life projects in here to keep track of my improvements. 
+# My focus
+* As I said before, I've always worked for data so my main focus is to improve my skills as a data analyst.
+* SQL, Power BI, Tableau, Python and mastering Excel are my main focus for the moment!
