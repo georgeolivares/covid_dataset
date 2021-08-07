@@ -14,3 +14,5 @@ Hey everybody! Welcome to my humble portfolio, I will be posting all my projects
 # My focus
 * As I said before, I've always worked for data so my main focus is to improve my skills as a data analyst.
 * SQL, Power BI, Tableau, Python and mastering Excel are my main focus for the moment!
+
+![image](https://user-images.githubusercontent.com/88570786/128612401-6000ee6f-065f-43f6-87f1-02259badf6d7.png)
