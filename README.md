@@ -1,4 +1,4 @@
-# GeorgeOlivares_Portfolio
+# GeorgeOlivares_Portfoli
 Hey everybody! Welcome to my humble portfolio, I will be posting all my projects in this page, feel free to give any feedback about any of the projects!
 # A little bit about me.
 * I have a bachelor's degree in Business Administration from Universidad de Monterrey (Monterrey, Nuevo Leon, Mexico). I started as an Inbound Marketing Trainee in Mexico during University and spent almost a year in that position. 
