@@ -5,3 +5,5 @@ Hey everybody! Welcome to my humble portfolio, I will be posting all my projects
     ![image](https://www.cdc.gov/coronavirus/2019-ncov/images/global-covid-19/global-map.jpg)
 
 # [Project 1](https://georgeolivares.github.io/Project1/)
+
+![global-map](https://user-images.githubusercontent.com/88570786/134788930-95a656ae-472f-453e-8501-24d985383393.jpg)
