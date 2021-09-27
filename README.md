@@ -10,10 +10,15 @@ Covid is a really hot topic right now, as we all now how our lifes have changed 
 I believe, according to the information in the dataset used, we can answer some of the following questions:
 
 --> Top 5 countries with the most confirmed cases per million
+
 --> Top 5 countries with the deaths per million
+
 --> Are population density and confirmed cases related?
---> 
 
+--> Is median age related to the death rate?
 
+--> Is GDP per capita related to the death rate?
+
+--> Are hospital beds per thousand related to the death rate?
 
 # [Project 1](https://georgeolivares.github.io/Project1/)
