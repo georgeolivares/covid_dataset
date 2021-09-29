@@ -35,6 +35,17 @@ Seems like I am not 'worthy' of using this path yet hahaha.
 
 Finally, by a friend's recommendation, I imported the file using DBeaver. I'll be using this platform to do this projects. We'll see how it goes!
 
+# Apparently, Seychelles had the most cases per million
+
+Last date recorded in data set - Sept 24th 2021
+
+Average days reported by country: 
+
+Country with the least amount of days reported:
+
+Country with the most days reported:
+
+
 
 
 # [Project 1](https://georgeolivares.github.io/Project1/)
