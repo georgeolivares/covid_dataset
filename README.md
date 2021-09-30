@@ -35,25 +35,24 @@ Seems like I am not 'worthy' of using this path yet hahaha.
 
 Finally, by a friend's recommendation, I imported the file using DBeaver. I'll be using this platform to do this projects. We'll see how it goes!
 
-# Apparently, Seychelles had the most cases per million
+# Apparently, the Vatican had the most cases per million!
 
 Last date recorded in data set - Sept 24th 2021
 
-Average days reported by country: 
-
-Country with the least amount of days reported:
-
-Country with the most days reported:
+Average days reported by country: 510.6078
 
 ```sql
 with group1
-	as(select location, count(distinct(date)) as fechas
-	from owid_covid_data_csv ocdc group by location),
-group2 as(select avg(fechas) as promedio from
-	(select count(distinct(date)) as fechas
+	as(select location, total_cases_per_million, count(distinct(date)) as unique_dates
+	from owid_covid_data_csv ocdc group by location order by total_cases_per_million DESC),
+group2 as(select avg(unique_dates) as average from
+	(select count(distinct(date)) as unique_dates
 	from owid_covid_data_csv ocdc group by location) mytable)
-select * from group1 join group2;
+select * from group1 join group2 where unique_dates > average and total_cases_per_million is not null;
 ```
 
+*The output*
 
-# [Project 1](https://georgeolivares.github.io/Project1/)
+![image](https://user-images.githubusercontent.com/88570786/135370442-9cf86a3a-198a-436f-a817-46c5fb4165bc.png)
+
+
