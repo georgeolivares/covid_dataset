@@ -57,3 +57,8 @@ select * from group1 join group2 where unique_dates > average and cases_per_mill
 
 ![image](https://user-images.githubusercontent.com/88570786/135374660-e1f81661-6953-43cb-912a-d00919584baa.png)
 
+
+
+# Deadliest countries during covid times!
+
+![image](https://user-images.githubusercontent.com/88570786/135385590-90c58245-2290-49ad-826e-c5d6c5cfe2ae.png)
