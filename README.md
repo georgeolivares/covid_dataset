@@ -45,7 +45,7 @@ Country with the least amount of days reported:
 
 Country with the most days reported:
 
-'''
+```sql
 with group1
 	as(select location, count(distinct(date)) as fechas
 	from owid_covid_data_csv ocdc group by location),
@@ -53,8 +53,7 @@ group2 as(select avg(fechas) as promedio from
 	(select count(distinct(date)) as fechas
 	from owid_covid_data_csv ocdc group by location) mytable)
 select * from group1 join group2;
-'''
-
+```
 
 
 # [Project 1](https://georgeolivares.github.io/Project1/)
