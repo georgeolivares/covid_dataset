@@ -55,4 +55,5 @@ select * from group1 join group2 where unique_dates > average and cases_per_mill
 
 ![image](https://user-images.githubusercontent.com/88570786/135373295-f748e9ff-bf7c-491b-9208-94bf805abdcc.png)
 
+![image](https://user-images.githubusercontent.com/88570786/135374660-e1f81661-6953-43cb-912a-d00919584baa.png)
 
