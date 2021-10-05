@@ -62,3 +62,17 @@ select * from group1 join group2 where unique_dates > average and cases_per_mill
 # Deadliest countries during covid times!
 
 ![image](https://user-images.githubusercontent.com/88570786/135385590-90c58245-2290-49ad-826e-c5d6c5cfe2ae.png)
+
+# Is the death rate related to the amount of beds available for citizens by country?
+
+NO RELATIONSHIP
+
+```sql
+select location, max(date), max(total_deaths_per_million) , 
+hospital_beds_per_thousand from owid_covid_data_csv ocdc 
+where hospital_beds_per_thousand is not null group by location;
+```
+
+![image](https://user-images.githubusercontent.com/88570786/135940766-26a1e1ec-8037-4bf1-a25f-9d81fc835d22.png)
+
+
