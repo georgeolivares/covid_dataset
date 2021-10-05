@@ -75,4 +75,17 @@ where hospital_beds_per_thousand is not null group by location;
 
 ![image](https://user-images.githubusercontent.com/88570786/135940766-26a1e1ec-8037-4bf1-a25f-9d81fc835d22.png)
 
+# Is the death rate related to the amount of beds available for citizens by country?
+
+NO RELATIONSHIP
+
+```sql
+x
+x
+x
+```
+
+
+
+
 
