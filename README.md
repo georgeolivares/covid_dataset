@@ -75,9 +75,8 @@ where hospital_beds_per_thousand is not null group by location;
 
 ![image](https://user-images.githubusercontent.com/88570786/135940766-26a1e1ec-8037-4bf1-a25f-9d81fc835d22.png)
 
-# Is the death rate related to the amount of beds available for citizens by country?
-
-NO RELATIONSHIP
+# Is there a relationship between vaccines applied and the aount of cases?
+No relationship at least with the total amount of vaccines applied and the total cases registered. But there will not be any relationship because the number keeps growing. What must have diminished or slowed down is the growth rate of the cases/
 
 ```sql
 x
@@ -85,7 +84,7 @@ x
 x
 ```
 
-
+# Vaccines applied per day vs the cases growth rate?
 
 
 
