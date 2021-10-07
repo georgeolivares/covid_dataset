@@ -75,7 +75,7 @@ where hospital_beds_per_thousand is not null group by location;
 
 ![image](https://user-images.githubusercontent.com/88570786/135940766-26a1e1ec-8037-4bf1-a25f-9d81fc835d22.png)
 
-# Is there a relationship between vaccines applied and the aount of cases?
+# Is there a relationship between vaccines applied and the amount of cases?
 No relationship at least with the total amount of vaccines applied and the total cases registered. But there will not be any relationship because the number keeps growing. What must have diminished or slowed down is the growth rate of the cases/
 
 ```sql
@@ -86,5 +86,21 @@ x
 
 # Vaccines applied per day vs the cases growth rate?
 
+```sql
+drop table tablatemporal1;
 
+create table tablatemporal1(fila integer, location text, date text, 
+total_vaccinations decimal(10,0), total_cases integer);
+
+insert into tablatemporal1(fila, location, date, total_vaccinations, total_cases)
+select row_number() over(partition by location order by date) as fila,
+location, date, total_vaccinations, total_cases from owid_covid_data_csv ocdc 
+where total_vaccinations is not null and total_cases is not null and location = 'Africa';
+
+select * from tablatemporal1;
+
+SELECT fila, location, date, total_vaccinations, total_cases, sum(total_cases)
+  OVER (ORDER BY fila ROWS BETWEEN CURRENT ROW AND 1 FOLLOWING) sum
+FROM tablatemporal1;
+```
 
