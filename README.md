@@ -76,6 +76,8 @@ There were some inconscistencies while going through this dataset. For instance,
 
 Another struggle I had during the analysis is that, it doesn't matter how effective the countries were facing the pandemic. Vaccines and beds in hospitals could only do so much to lower the growth rate of cases around the world. So, even if vaccines and beds had a positive impact in the death rate. you wouldn't be able to see any relationship between one variable vs another. It was like trying to stop a big truck at full speed putting small bumps in front of it. It helps, but it is not enough.
 
+The same applies to the relationship between vaccines applied vs the amount of daily cases and the relationship between vaccines applied and daily cases growth rate. Vaccines, beds, lockdown... it all helps to a certain point, but it is still not enough. 
+
 ```sql
 select location, max(date), max(total_deaths_per_million) , 
 hospital_beds_per_thousand from owid_covid_data_csv ocdc 
@@ -84,14 +86,18 @@ where hospital_beds_per_thousand is not null group by location;
 
 ![image](https://user-images.githubusercontent.com/88570786/135940766-26a1e1ec-8037-4bf1-a25f-9d81fc835d22.png)
 
-# Is there a relationship between vaccines applied and the amount of cases?
-No relationship at least with the total amount of vaccines applied and the total cases registered. But there will not be any relationship because the number keeps growing. What must have diminished or slowed down is the growth rate of the cases/
+# Conclusions
 
-```sql
-x
-x
-x
-```
+I believe this was a great exercise for me to practice and have a general idea of the work involved in analyzing datasets and the unexpected 'bumps' that we can find during the analysis.
+
+There's a concept (I don't even know if it's a concept, but I believe it is hahaha) called 'data cleaning'. During the analysis of this dataset I found many small but significant differences in the data from some countries. This differences made me obtain results that were not completely reliable. For instance, some of the amounts in the 'total_cases' column instead of having a ',' showing a number like 70,000 had a '.' showing the number as this 70.000. As I said before, this may be a small but really significant mistake in the dataset that instead of showing a country with 70,000 cases would show you the same country with a total of 70 cases. 
+
+I believe the right approach to analyzing a dataset must be:
+1) Get a general understanding of the whole dataset
+2) Get to know how the data was obtained, is it reliable?
+3) Having a reliable source from where the data was obtained doesn't mean the dataset is free of mistakes. Has the dataset being analyzed and have the mistakes being corrected?
+
+Once we have an answer for these questions we can take a decision of wether we should start doing the analysis or not.
 
 # Vaccines applied per day vs the cases growth rate?
 
