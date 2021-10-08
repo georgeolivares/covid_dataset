@@ -99,23 +99,59 @@ I believe the right approach to analyzing a dataset must be:
 
 Once we have an answer for these questions we can take a decision of wether we should start doing the analysis or not.
 
-# Vaccines applied per day vs the cases growth rate?
+# Some scripts for future reference
+
+I learned a lot about some queries I wasn't sure about how to use to obtain certain information so I am leaving some of these scripts below. I am also leaving a link to the dataset in case anybody wants to use it.
+
+COVID-19 Dataset: https://github.com/owid/covid-19-data/tree/master/public/data
+
+Deadliest countries per million
+
+# Beds vs death rate
 
 ```sql
-drop table tablatemporal1;
-
-create table tablatemporal1(fila integer, location text, date text, 
-total_vaccinations decimal(10,0), total_cases integer);
-
-insert into tablatemporal1(fila, location, date, total_vaccinations, total_cases)
-select row_number() over(partition by location order by date) as fila,
-location, date, total_vaccinations, total_cases from owid_covid_data_csv ocdc 
-where total_vaccinations is not null and total_cases is not null and location = 'Africa';
-
-select * from tablatemporal1;
-
-SELECT fila, location, date, total_vaccinations, total_cases, sum(total_cases)
-  OVER (ORDER BY fila ROWS BETWEEN CURRENT ROW AND 1 FOLLOWING) sum
-FROM tablatemporal1;
+select location, max(date), max(total_deaths_per_million) , hospital_beds_per_thousand from owid_covid_data_csv ocdc
+where hospital_beds_per_thousand is not null group by location;
 ```
+
+# Vaccines vs cases
+
+```sql
+select location, max(date), max(people_fully_vaccinated_per_hundred) ,
+max(total_cases_per_million) from owid_covid_data_csv ocdc 
+where people_fully_vaccinated_per_hundred is not null and total_cases_per_million is not null group by location;
+```
+
+# Empty rows in total vaccinations column
+
+```sql
+with group1
+as (select location as location1, count(*) as empty_1 from owid_covid_data_csv ocdc 
+where total_vaccinations is null group by location),
+group2 as (select location as location2, count(*) as not_empty from owid_covid_data_csv ocdc 
+where total_vaccinations is not null group by location)
+select * from group1 join group2 where location1 = location2;
+```
+
+![image](https://user-images.githubusercontent.com/88570786/136631415-be5a17fc-0540-44ba-9a8c-ba23e827eecc.png)
+
+# Growth rate (Lag & Lead commands)
+
+```sql
+select fila, location, date, total_vaccinations, total_cases, totalcases_vs_nextrow, growth,
+lag(growth, 1) OVER(partition by location order by fila) as growth_lag,
+growth - lag(growth, 1) OVER(partition by location order by fila) as dif_growth_Rate
+from
+(SELECT fila, location, date, total_vaccinations, total_cases, total_vaccinations - total_cases as resta, 
+sum(total_cases) OVER (partition by location ORDER BY fila ROWS BETWEEN CURRENT ROW AND 1 FOLLOWING) sum,
+lead(total_cases, 1) OVER(partition by location order by fila) - total_cases as totalcases_vs_nextrow,
+lead(total_cases, 1) OVER(partition by location order by fila) * 100 / total_cases - 100 as growth
+FROM tablatemporal1) mytable2;
+```
+
+![image](https://user-images.githubusercontent.com/88570786/136631350-a683cb43-8301-4be4-804b-8ce364add70c.png)
+
+
+
+
 
